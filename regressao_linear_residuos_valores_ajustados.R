@@ -47,3 +47,8 @@ ggplot(model.diag.metrics, aes(youtube, sales)) +
   geom_point() +
   stat_smooth(method = lm, se = FALSE) +
   geom_segment(aes(xend = youtube, yend = .fitted), color = "red", size = 0.3)
+
+# Referência ------------------------------------------------------------------------------------------------------------------------------------
+
+### http://www.sthda.com/english/articles/39-regression-model-diagnostics/161-linear-regression-assumptions-and-diagnostics-in-r-essentials/
+
