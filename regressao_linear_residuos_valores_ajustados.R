@@ -26,4 +26,24 @@ model
 ### os valores x fornecidos de acordo com o modelo de regressão construído, ou seja,
 ### um melhor ajuste do seu modelo.
 
+### Quando nem todos os pontos de dados caem exatamente na linha de regressão estimada,
+### significa que os valores observados (medidos) são diferentes dos valores previstos
+### e ajustados do modelo. A diferença é chamada de erros residuais, representados por 
+### linhas vermelhas verticais (veja no gráfico abaixo).
 
+model.diag.metrics <- augment(model)
+head(model.diag.metrics)
+
+### Resultados:
+
+# youtube: valores dos orçamentos investidos no youtube
+# sales: valores observados de vendas
+# .fitted: valores ajustados das vendas
+# .resid: erros residuais
+
+# Gráfico do modelo ------------------------------------------------------------------------------------------------------------------------
+
+ggplot(model.diag.metrics, aes(youtube, sales)) +
+  geom_point() +
+  stat_smooth(method = lm, se = FALSE) +
+  geom_segment(aes(xend = youtube, yend = .fitted), color = "red", size = 0.3)
