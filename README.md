@@ -1,0 +1,1 @@
+# regressao_linear_residuos_valores_ajustados
